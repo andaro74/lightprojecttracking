@@ -12,8 +12,6 @@ namespace TeamProjectWeb.Controllers.MVC
     public class ContactsController : Controller
     {
 
-       
-
         private IContactService _contactManager;
 
         public ContactsController(IContactService contactManager)

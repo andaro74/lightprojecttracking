@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamProjectWeb", "TeamProje
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamProject.Data", "Project.Data\TeamProject.Data.csproj", "{6E8A4DE7-8D81-454D-8A90-442F25D25D4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Tests", "Project.Tests\Project.Tests.csproj", "{7ADF5C64-F5C9-4880-9FF0-9197068E06FE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Common.Contracts", "Project.Common.Contracts\Core.Common.Contracts.csproj", "{FCAB04C6-7593-4BCA-9570-133EB97D63ED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Common", "Core.Common\Core.Common.csproj", "{2A2FB501-B8B2-4833-9B47-D691EA63A23C}"
@@ -53,10 +51,6 @@ Global
 		{6E8A4DE7-8D81-454D-8A90-442F25D25D4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E8A4DE7-8D81-454D-8A90-442F25D25D4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E8A4DE7-8D81-454D-8A90-442F25D25D4C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7ADF5C64-F5C9-4880-9FF0-9197068E06FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7ADF5C64-F5C9-4880-9FF0-9197068E06FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7ADF5C64-F5C9-4880-9FF0-9197068E06FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7ADF5C64-F5C9-4880-9FF0-9197068E06FE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FCAB04C6-7593-4BCA-9570-133EB97D63ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FCAB04C6-7593-4BCA-9570-133EB97D63ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCAB04C6-7593-4BCA-9570-133EB97D63ED}.Release|Any CPU.ActiveCfg = Release|Any CPU

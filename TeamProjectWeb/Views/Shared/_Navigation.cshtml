@@ -2,8 +2,7 @@
     <div class="sidebar-collapse">
         <ul class="nav" id="side-menu">
             <li class="nav-header">
-               
-
+          
                 @Html.Action("AdminDetails","Contacts")
 
                 <div class="logo-element">
@@ -16,13 +15,7 @@
             <li class="@Html.IsSelected(action: "Index")">
                 <a href="@Url.Action("Index", "Contacts")"><i class="fa fa-user"></i> <span class="nav-label">Team</span> </a>
             </li>
-           
-           <!-- <li class="@Html.IsSelected(action: "Index")">
-                <a href="@Url.Action("Index", "Home")"><i class="fa fa-laptop"></i> <span class="nav-label">Main page</span> </a>
-            </li>
-            <li class="@Html.IsSelected(action: "Minor")">
-                <a href="@Url.Action("Minor", "Home")"><i class="fa fa-desktop"></i> <span class="nav-label">Minor page</span></a>
-            </li>-->
+          
         </ul>
     </div>
 </nav>

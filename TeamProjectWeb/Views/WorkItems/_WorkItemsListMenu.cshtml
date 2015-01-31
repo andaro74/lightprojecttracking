@@ -26,27 +26,7 @@
                     <li><a href="@Url.Action("Index", "WorkItems", new { id = Model.ProjectId,status = (int)StatusEnum.Cancelled})"> <i class="fa fa-certificate"></i> @Html.WorkItemCounter((int)StatusEnum.Cancelled, Model.MenuItemsStatusCounter.CancelledCounter) </a></li>
                     <li><a href="@Url.Action("Index", "WorkItems", new { id = Model.ProjectId,status = (int)StatusEnum.Deleted })"> <i class="fa fa-certificate"></i> @Html.WorkItemCounter((int)StatusEnum.Deleted, Model.MenuItemsStatusCounter.DeletedCounter) </a></li>
                 </ul>
-                <!--
-                <h5>Prioties</h5>
-                <ul class="category-list" style="padding: 0">
-                    <li><a href="#"> <i class="fa fa-circle text-navy"></i> High </a></li>
-                    <li><a href="#"> <i class="fa fa-circle text-danger"></i> Normal</a></li>
-                    <li><a href="#"> <i class="fa fa-circle text-primary"></i> Low</a></li>
-                </ul>
-                -->
-                <!--
-                <h5 class="tag-title">Labels</h5>
-                <ul class="tag-list" style="padding: 0">
-                    <li><a href=""><i class="fa fa-tag"></i> Family</a></li>
-                    <li><a href=""><i class="fa fa-tag"></i> Work</a></li>
-                    <li><a href=""><i class="fa fa-tag"></i> Home</a></li>
-                    <li><a href=""><i class="fa fa-tag"></i> Children</a></li>
-                    <li><a href=""><i class="fa fa-tag"></i> Holidays</a></li>
-                    <li><a href=""><i class="fa fa-tag"></i> Music</a></li>
-                    <li><a href=""><i class="fa fa-tag"></i> Photography</a></li>
-                    <li><a href=""><i class="fa fa-tag"></i> Film</a></li>
-                </ul>
-                    -->
+             
                 <div class="clearfix"></div>
             </div>
         </div>
