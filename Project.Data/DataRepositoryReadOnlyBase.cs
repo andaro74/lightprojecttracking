@@ -1,0 +1,14 @@
+﻿using Core.Common.Data;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TeamProject.Data
+{
+    public abstract class DataRepositoryReadOnlyBase<T>:DataRepositoryReadOnlyBase<T,TeamProjectContext>
+        where T: class, new ()
+    {
+    }
+}

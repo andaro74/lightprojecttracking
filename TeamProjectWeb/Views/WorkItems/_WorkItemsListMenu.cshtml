@@ -1,0 +1,63 @@
+﻿
+@using TeamProjectWeb.Models
+@using TeamProject.Common
+@using TeamProjectWeb.Infrastructure
+
+@model WorkItemsMenuViewModel
+
+<div class="col-lg-3">
+    
+    <div class="ibox float-e-margins">
+        <div class="ibox-content mailbox-content">
+            
+            <div class="file-manager">
+                <h3>@Html.DisplayFor(m => m.ProjectName)</h3>
+                <div class="space-25"></div>
+                <a class="btn btn-block btn-primary compose-mail" href="@Url.Action("Create", "WorkItems")">Create WorkItem</a>
+                <div class="space-25"></div>
+                
+                <h5>Statuses</h5>
+                @Html.HiddenFor(m => m.ProjectId)
+                <ul class="folder-list m-b-md" style="padding: 0">
+                    <li><a href="@Url.Action("Index", "WorkItems", new { id = Model.ProjectId,status = (int)StatusEnum.ToDo})"> <i class="fa fa-certificate"></i> @Html.WorkItemCounter((int)StatusEnum.ToDo,Model.MenuItemsStatusCounter.ToDoCounter)  </a></li>
+                    <li><a href="@Url.Action("Index", "WorkItems", new { id = Model.ProjectId,status = (int)StatusEnum.InProgress })"> <i class="fa fa-certificate"></i> @Html.WorkItemCounter((int)StatusEnum.InProgress, Model.MenuItemsStatusCounter.InProgressCounter) </a></li>
+                    <li><a href="@Url.Action("Index", "WorkItems", new { id = Model.ProjectId,status = (int)StatusEnum.Done })"> <i class="fa fa-certificate"></i> @Html.WorkItemCounter((int)StatusEnum.Done, Model.MenuItemsStatusCounter.DoneCounter) </a></li>
+                    <li><a href="@Url.Action("Index", "WorkItems", new { id = Model.ProjectId,status = (int)StatusEnum.OnHold})"> <i class="fa fa-certificate"></i> @Html.WorkItemCounter((int)StatusEnum.OnHold, Model.MenuItemsStatusCounter.OnHoldCounter) </a></li>
+                    <li><a href="@Url.Action("Index", "WorkItems", new { id = Model.ProjectId,status = (int)StatusEnum.Cancelled})"> <i class="fa fa-certificate"></i> @Html.WorkItemCounter((int)StatusEnum.Cancelled, Model.MenuItemsStatusCounter.CancelledCounter) </a></li>
+                    <li><a href="@Url.Action("Index", "WorkItems", new { id = Model.ProjectId,status = (int)StatusEnum.Deleted })"> <i class="fa fa-certificate"></i> @Html.WorkItemCounter((int)StatusEnum.Deleted, Model.MenuItemsStatusCounter.DeletedCounter) </a></li>
+                </ul>
+                <!--
+                <h5>Prioties</h5>
+                <ul class="category-list" style="padding: 0">
+                    <li><a href="#"> <i class="fa fa-circle text-navy"></i> High </a></li>
+                    <li><a href="#"> <i class="fa fa-circle text-danger"></i> Normal</a></li>
+                    <li><a href="#"> <i class="fa fa-circle text-primary"></i> Low</a></li>
+                </ul>
+                -->
+                <!--
+                <h5 class="tag-title">Labels</h5>
+                <ul class="tag-list" style="padding: 0">
+                    <li><a href=""><i class="fa fa-tag"></i> Family</a></li>
+                    <li><a href=""><i class="fa fa-tag"></i> Work</a></li>
+                    <li><a href=""><i class="fa fa-tag"></i> Home</a></li>
+                    <li><a href=""><i class="fa fa-tag"></i> Children</a></li>
+                    <li><a href=""><i class="fa fa-tag"></i> Holidays</a></li>
+                    <li><a href=""><i class="fa fa-tag"></i> Music</a></li>
+                    <li><a href=""><i class="fa fa-tag"></i> Photography</a></li>
+                    <li><a href=""><i class="fa fa-tag"></i> Film</a></li>
+                </ul>
+                    -->
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@helper DisplayCounterIfHasValue(int item)
+{
+    if (item > 0)
+    { 
+        @Html.DisplayFor(m => m.MenuItemsStatusCounter.DoneCounter)
+    }
+}
+

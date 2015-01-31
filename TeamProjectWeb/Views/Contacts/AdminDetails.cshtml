@@ -1,0 +1,26 @@
+﻿
+@using TeamProjectWeb.Models
+
+@model ContactBasicViewModel
+
+<div class="profile-element">
+    @Html.HiddenFor(m => m.ContactId)
+
+    <span>
+        <img alt="image" class="img-circle" src="@Url.Content(Model.PhotoPath)">
+    </span>
+    
+    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+        <span class="clear">
+            <span class="block m-t-xs">
+                <strong class="font-bold">@Html.DisplayFor(m=>m.FullName)</strong>
+                
+            </span> <span class="text-muted text-xs block">@Html.DisplayFor(m=>m.Title)</span>
+        </span>
+    </a>
+    <!--
+    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+        <li><a href="#">Logout</a></li>
+    </ul>
+        -->
+</div>

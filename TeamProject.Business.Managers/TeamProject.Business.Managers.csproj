@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{80EB99B1-E569-4EF4-B644-9EE841CFF902}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TeamProject.Business.Managers</RootNamespace>
+    <AssemblyName>TeamProject.Business.Managers</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Managers\CommonManager.cs" />
+    <Compile Include="Managers\ContactManager.cs" />
+    <Compile Include="Managers\TeamProjectManager.cs" />
+    <Compile Include="Managers\WorkItemsManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Project.Business.Entities\TeamProject.Business.Entities.csproj">
+      <Project>{fcafecbd-8f33-4530-b49c-054b4f700c7f}</Project>
+      <Name>TeamProject.Business.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Common.Contracts\Core.Common.Contracts.csproj">
+      <Project>{fcab04c6-7593-4bca-9570-133eb97d63ed}</Project>
+      <Name>Core.Common.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Data.Contracts\TeamProject.Data.Contracts.csproj">
+      <Project>{41afca31-b89b-4f13-8568-640425fb3747}</Project>
+      <Name>TeamProject.Data.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamProject.Business.Common\TeamProject.Business.Common.csproj">
+      <Project>{f8ba5486-8076-4142-b892-406fdadcb2ef}</Project>
+      <Name>TeamProject.Business.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamProject.Business.Contracts\TeamProject.Business.Contracts.csproj">
+      <Project>{34e7d647-b840-4220-b3c4-0f6176bfad4b}</Project>
+      <Name>TeamProject.Business.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamProject.Common\TeamProject.Common.csproj">
+      <Project>{89ad3cb6-d7b2-45aa-a91e-a872f36fca93}</Project>
+      <Name>TeamProject.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,101 @@
+﻿@using TeamProjectWeb.Models
+@using TeamProject.Common
+@using TeamProjectWeb.Infrastructure
+
+@model WorkItemViewModel
+
+<div class="col-lg-9 animated fadeInRight">
+    <div class="mail-box-header">
+        
+        <div class="pull-right tooltip-demo">
+        </div>
+        @if (Model.Mode == Mode.Create)
+        {
+               <h2>
+                Create Work Item
+            </h2>
+        }
+        else if (Model.Mode==Mode.Edit)
+        {
+            <h2>
+                Edit Work Item - @Html.WorkItemIdFormated(Model.WorkItemId)
+            </h2>
+        }
+    </div>
+    <div class="mail-box">
+        @using (Html.BeginForm(new { @class = "form-horizontal" }))
+        {
+
+            <div class="mail-body">
+
+                <div class="form-horizontal">
+                    @Html.HiddenFor(m => m.Mode)
+                    @Html.HiddenFor(m => m.WorkItemId)
+                    @Html.HiddenFor(m => m.ProjectId)
+                    @Html.HiddenFor(m=>m.PreviousSelectedStatus)
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Title:</label>
+
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Status:</label>
+                        <div class="col-sm-2">@Html.DropDownListFor(m => m.SelectedStatus, Model.StatusList, new { @class = "form-control" }) </div>
+
+                        <label class="col-sm-2 control-label">Assigned To:</label>
+                        <div class="col-sm-2">@Html.DropDownListFor(m => m.TeamMemberId, Model.TeamMemberList, new { @class = "form-control" })</div>
+
+
+
+                        <label class="col-sm-2 control-label">Priority:</label>
+                        <div class="col-sm-2">@Html.DropDownListFor(m => m.SelectedPriority, Model.PriorityList, new { @class = "form-control" })</div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Due Date:</label>
+
+                        <div class="col-sm-2" id="data_1">
+                            <div class="input-group date">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                                @Html.TextBoxFor(m => m.DueDate, new { @class = "form-control", @Value = Model.DueDate.ToString("MM/dd/yyyy") })
+
+                            </div>
+                        </div>
+                        <label class="col-sm-2 control-label">Difficulty:</label>
+                        <div class="col-sm-2">@Html.DropDownListFor(m => m.SelectedDifficulty, Model.DifficultyList, new { @class = "form-control" })</div>
+
+
+
+                        <label class="col-sm-2 control-label">Work hours:</label>
+
+                        <div class="col-sm-1">
+                            @Html.TextBoxFor(m => m.WorkHours, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="mail-text h-200">
+                <div>
+                    @Html.TextAreaFor(m => m.Description, new { @class = "summernote" })
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="mail-body text-right tooltip-demo">
+                <input type="submit" class="btn btn-sm btn-primary" value="Save" />
+                <a href="@Url.Action("Index", "WorkItems", new { id=Model.ProjectId, status=(int)Model.SelectedStatus })" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Cancel"><i class="fa fa-times"></i> Cancel</a>
+            </div>
+            <div class="clearfix"></div>
+        }
+
+    </div>
+</div>

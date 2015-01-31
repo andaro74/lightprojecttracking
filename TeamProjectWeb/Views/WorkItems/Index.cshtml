@@ -1,0 +1,112 @@
+﻿
+@using TeamProjectWeb.Models
+@using TeamProjectWeb.Infrastructure
+
+@model WorkItemsContainerViewModel 
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+        
+        @Html.Partial("_WorkItemsListMenu", Model.WorkItemsMenu)
+
+        <div class="col-lg-9 animated fadeInRight">
+            <div class="mail-box-header">
+
+              <!--  <form method="get" action="#" class="pull-right mail-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control input-sm" name="search" placeholder="Search work item">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-sm btn-primary">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </form>-->
+                
+                 @Html.StatusTitle((int)Model.WorkItemsMenu.SelectedFilterStatus,Model.WorkItemsMenu.MenuItemsStatusCounter)
+
+                <!--
+               <div class="mail-tools tooltip-demo m-t-md">
+                    <div class="btn-group pull-right">
+                        <button class="btn btn-white btn-sm"><i class="fa fa-arrow-left"></i></button>
+                        <button class="btn btn-white btn-sm"><i class="fa fa-arrow-right"></i></button>
+
+                    </div>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="left" title="Refresh inbox"><i class="fa fa-refresh"></i> Refresh</button>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Mark as read"><i class="fa fa-eye"></i> </button>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Mark as important"><i class="fa fa-exclamation"></i> </button>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Move to trash"><i class="fa fa-trash-o"></i> </button>
+
+                </div>
+            </div>-->
+            <div class="mail-box">
+
+                <table class="table table-hover table-mail">
+
+                    @if (Model.WorkItemsViewModelList.Count()>0)
+                    { 
+                    <thead>
+                        <tr>
+                            <th class="check-mail"></th>
+                            <th class="check-mail">Id</th>
+                            <th class="project-people"></th>
+                            <th class="mail-ontact">Member Assigned</th>
+                            <th class="mail-subject">Work Item Title</th>
+                            <th class="text-right mail-date">Due Date</th>
+                        </tr>
+                    </thead>
+                    }
+                        <tbody>
+                        @foreach (var workItem in Model.WorkItemsViewModelList)
+                        {
+                            <tr class="unread">
+                                <td class="check-mail">
+                                    <input type="checkbox" class="i-checks">
+                                </td>
+                                <td class="check-mail">@Html.ActionLink(@workItem.WorkItemId.ToString("0000"), "Edit", new { id = workItem.WorkItemId })</td>
+                              
+                                <td class="project-people">
+                                    <img alt="image" class="img-circle" src='@Url.Content(workItem.TeamMember.PhotoPath)' />
+                                </td>
+                                <td class="mail-ontact">
+                                    @Html.ActionLink(workItem.TeamMember.FullName, "Edit", new { id = workItem.WorkItemId })
+                                    
+                               </td>
+                                <td class="mail-subject">
+                                    @Html.ActionLink(@workItem.Title, "Edit", new { id = workItem.WorkItemId })
+                                </td>
+                                <td class="text-right mail-date">
+                                    @Html.DisplayFor(m=>workItem.DueDate)
+                                </td>
+                            </tr>
+
+                        }
+                       
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/plugins/iCheckStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/iCheck")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+
+        });
+    </script>
+}
