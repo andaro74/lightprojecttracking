@@ -62,4 +62,4 @@
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
 * linguist-vendored
-*.rb linguist-language=C#
+*.cs linguist-vendored=false
