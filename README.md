@@ -1,6 +1,3 @@
-# lightprojecttracking
-
-
 ## Light Project Tracking Demo
 
 Live: 
