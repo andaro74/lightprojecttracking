@@ -10,7 +10,7 @@ Light Project Tracking is a demo project management site that manages projects a
 
 ### Technologies:
 
-ASP.NET MVC, Razor, SQL Server, Entity Framework, HTML, CSS, Dependency Injection, Domain Driven Desing
+ASP.NET MVC, Razor, SQL Server, Entity Framework, HTML, CSS, Dependency Injection, Domain Driven Design
 
 
 ###  Main Dashboard:
